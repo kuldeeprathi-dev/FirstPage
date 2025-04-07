@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Outfit:wght@100..900&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>FirstPage</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container0 {
+            display: inline-block;
+            width: 100%;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-left: -3px;
+            /* overflow-x: hidden;
+            overflow-y: auto; */
+            clear: both;
+        }
+
+        .container {
+            display: flex;
+            background: url(picture/pic2.jpg) no-repeat center center fixed;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+            gap: 10px;
+            grid-auto-flow: row;
+            grid-template-rows: auto;
+            /* grid-template-rows:10px 10px;*/
+            grid-template-columns: 1fr 2fr 1fr;
+            position: relative;
+            row-gap: 2px;
+            column-gap: 2px;
+            padding: 1px;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+
+        /* .items{
+            background-color: transparent;
+            color: red;
+            width: 100px;
+            height: 100px;
+            display: grid;
+            grid-template-columns: 12px;
+        } */
+        #logo {
+            color: cyan;
+            background-color: transparent;
+            width: 200px;
+            height: 200px;
+            font-size: 40px;
+            font-family: "Baloo Bhai 2", sans-serif;
+            font-optical-sizing: auto;
+            /* font-weight: <weight>; */
+            font-style: normal;
+            position: absolute;
+            left: 47px;
+        }
+
+
+        #logo i {
+            color: cyan;
+            /* border: solid black 2px; */
+            /* border-bottom: 4px solid cyan; */
+            display: flex;
+            size: 20px;
+            justify-content: left;
+            padding: 11px 52px;
+            border-bottom: 10px;
+            position: relative;
+            right: -9px;
+            bottom: -17px;
+        }
+
+
+        /* Basic Plus Button Styling */
+        .plus-button {
+
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: cyan;
+            color: black;
+            /* font-weight: bold; */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .plus-button:hover {
+            background-color: #005f99;
+            transform: scale(1.1);
+        }
+
+        /* Menu Box Styles with animation */
+        .menu-box {
+            position: fixed;
+            top: 60px;
+            right: 30px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 12px;
+            opacity: 0;
+            display: none;
+
+        }
+
+        .menu-box:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s, opacity 0.3s ease-in-out;
+        }
+
+        .menu-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-box ul li {
+            margin: 10px 0;
+        }
+
+        .menu-box ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease-in-out;
+            font-family: "Baloo Bhai 2", sans-serif;
+            font-optical-sizing: auto;
+            /* font-weight: <weight>; */
+            font-style: normal;
+        }
+
+        .menu-box ul li a i {
+            margin-right: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Hover Effect for Icons and Links */
+        .menu-box ul li a:hover {
+            color: #007acc;
+        }
+
+        .menu-box ul li a:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Hidden State */
+        .hidden {
+            display: none;
+            opacity: 0;
+            transform: scale(0.8);
+            /* Shrinks before disappearing */
+        }
+
+        /* Visible State with animation */
+        .menu-box:not(.hidden) {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+            /* Grows when opening */
+        }
+
+
+        .heading {
+            display: grid;
+            font-size: 25px;
+            background-color: transparent;
+            width: 400px;
+            /* height: 500px; */
+            grid-column-start: 1;
+            grid-column-end: 3;
+            padding: 0px 0px;
+            font-family: "Baloo Bhai 2", sans-serif;
+            font-optical-sizing: auto;
+            /* font-weight: <weight>; */
+            font-style: normal;
+            position: absolute;
+            bottom: 228px;
+            left: 210px;
+        }
+
+        #wel {
+            color: cyan;
+            display: grid;
+            font-size: 30px;
+            font-family: "Baloo Bhai 2", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-weight: normal;
+            position: relative;
+        }
+
+        #met {
+            color: whitesmoke;
+            display: grid;
+            /* font-weight: bold; */
+            font-size: 16px;
+            display: flexbox;
+            font-family: "Baloo Bhai 2", sans-serif;
+            font-optical-sizing: auto;
+            /* font-weight: <weight>; */
+            font-style: normal;
+            font-weight: normal;
+            position: relative;
+        }
+
+
+        .foot {
+            color: cyan;
+            display: grid;
+            background: url('picture/pic2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            width: 100.2%;
+            height: 70px;
+            align-content: center;
+            text-align: center;
+            font-family: "Baloo Bhai 2", sans-serif;
+            font-optical-sizing: auto;
+            /* font-weight: <weight>; */
+            font-style: normal;
+            overflow: hidden;
+            border-top: solid cyan 2px;
+            /* border-bottom: solid cyan 2px; */
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: 10px;
+
+        }
+
+        .social-icons .icon:hover {
+            transition: transform 0.3s ease-in-out;
+            transform: scale(1.1);
+
+        }
+
+
+
+        .container1 {
+            background: url(picture/bc2.png) no-repeat center center fixed;
+            background-size: cover;
+            width: 100.2%;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 75% 25%;
+            row-gap: 2px;
+            column-gap: 2px;
+            border-top: solid cyan 2px;
+
+        }
+
+        /* .container1 .mainbox{
+
+        } */
+        #textbox {
+            color: cyan;
+            background-color: transparent;
+            /* border: solid red 2px; */
+            width: 98vw;
+            height: 10vh;
+            /* position:sticky; */
+            grid-column-start: 1;
+            grid-column-end: 3;
+            font-family: "Baloo Bhai 2", sans-serif;
+            font-optical-sizing: auto;
+            /* font-weight: <weight>; */
+            font-style: normal;
+
+        }
+
+        .mydata {
+            background-color: rgba(245, 245, 255, 0.5);
+            border: solid red 2px;
+            width: 50vw;
+            height: 70vh;
+            display: grid;
+            border-radius: 30px;
+            margin-left: 80px;
+        }
+
+        .mydata #details {
+            font-family: "Baloo Bhai 2", sans-serif;
+            font-optical-sizing: auto;
+            /* font-weight: <weight>; */
+            font-style: normal;
+            padding: 80px 80px;
+        }
+
+        .container1 .mydata #para {
+            color: black;
+            display: grid;
+            font-family: "Baloo Bhai 2", sans-serif;
+            font-optical-sizing: auto;
+            /* font-weight: <weight>; */
+            font-style: normal;
+        }
+
+        #movetext {
+            color: cyan;
+            font-size: 20px;
+            list-style: none;
+
+        }
+
+
+        #photo {
+            color: blue;
+            background-color: transparent;
+            display: grid;
+            justify-content: right;
+
+        }
+
+        #photo img {
+            width: 200px;
+            height: 200px;
+            background: var(--modal-background);
+            box-shadow: 0 0 1px #833AB4, 0 4px 24px 4px #606;
+            padding: 10px;
+            /* margin: 33px 45px; */
+            position: relative;
+            right: 140px;
+            top: 200px;
+
+        }
+
+        /* For screen saaller than 768px ( Tablets and phones) */
+        @media only screen and (max-width:900px) {
+            .container0 {
+                flex-direction: column;
+                align-items: center;
+                width: 107%;
+
+            }
+
+            .mydata #details {
+                padding: 6px 21px;
+            }
+
+            #details h1 {
+                font-size: 5pvw;
+
+            }
+
+            #movetext {
+                font-size: 2vw;
+                color: violet;
+                list-style: none;
+                ;
+            }
+
+            #para {
+                font-size: 2vw;
+                overflow: auto;
+                word-wrap: break-word;
+            }
+
+            .mydata {
+                position: absolute;
+                margin-top: 148px;
+                margin-left: 10px;
+            }
+
+            #photo img {
+                width: 150px;
+                height: 150px;
+                position: relative;
+                top: 108px;
+                right: -91px;
+            }
+
+            .heading {
+                width: 200px;
+                height: 233px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            #wel {
+                font-size: 20px;
+            }
+
+            #met {
+                font-size: 10px;
+            }
+
+        }
+
+        @media only screen and (min-width: 1600px) {
+            .heading {
+                width: 200px;
+                height: auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            #wel {
+                font-size: 20px;
+            }
+
+            #met {
+                font-size: 15px;
+            }
+
+            .mydata #details {
+                padding: 6px 21px;
+            }
+
+            #details h1 {
+                font-size: 2vw;
+
+            }
+
+            #movetext {
+                font-size: 2vw;
+                color: violet;
+                list-style: none;
+                ;
+            }
+
+            #para {
+                font-size: 2vw;
+                overflow: auto;
+                word-wrap: break-word;
+            }
+
+            .mydata {
+                position: absolute;
+                margin-top: 193px;
+                margin-left: 10px;
+            }
+
+            #photo img {
+                width: 300px;
+                height: 300px;
+                position: relative;
+                top: 108px;
+                right: -91px;
+            }
+        }
+
+
+        /* For screen smallar than 480px (mobiles) */
+        /* mobile  */
+        @media only screen and (max-width: 480px) {
+            .container0 {
+                flex-direction: column;
+                align-items: center;
+                width: 107%;
+
+            }
+
+            .mydata #details {
+                padding: 6px 21px;
+            }
+
+            #details h1 {
+                font-size: 3vw;
+
+            }
+
+            #movetext {
+                font-size: 3vw;
+                color: violet;
+                list-style: none;
+            }
+
+            #para {
+                font-size: 3vw;
+                overflow: auto;
+                word-wrap: break-word;
+            }
+
+            .mydata {
+                position: absolute;
+                width: 50vw;
+                height: 60vh;
+            }
+
+            #photo img {
+                width: 100px;
+                height: 100px;
+                position: relative;
+                top: 67px;
+                right: -52px;
+            }
+
+            .heading {
+                width: 200px;
+                height: auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            #wel {
+                font-size: 20px;
+            }
+
+            #met {
+                font-size: 15xpx;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container0">
+        <header>
+            <div class="container">
+                <!-- <div class="items"> -->
+                <div id="logo"><i class="fas fa-shield-alt"></i>FirstPage</div>
+                <!-- Plus Button -->
+                <div id="plusButton" class="plus-button">+</div>
+
+                <!-- Menu Box -->
+                <div id="menuBox" class="menu-box hidden">
+                    <ul>
+                        <li><a href="http://127.0.0.1:5501/second.html"><i class="fas fa-home"></i>Home</a></li>
+                        <li><a href="KuldeepRathourResume.pdf.rar" download="KuldeepRathourResume.pdf.rar"><i
+                                    class="fas fa-download"></i>Resume</a></li>
+                        <li><a href="contact.html"><i class="fas fa-phone"></i>ContactMe</a></li>
+                    </ul>
+                </div>
+                <div class="heading">
+                    <div id="wel">
+                        <h1>Welcome to the FirstPage</h1><br>
+                    </div>
+
+                    <div id="met">
+                        <p>
+                            Firstpage..This is my first website. <br>
+                            where I’ve applied my web designing skills. <br>
+                            It features a clean and simple design that’s <br>
+                            easy to use. This is just the beginning more ideas <br>
+                            and improvements will come along the way. <br>
+                            Stay tuned! <br>
+                            . <br>
+                            Let me know if you want any changes!</p>
+                    </div>
+                </div>
+
+                <!-- <div id="box4">four</div> -->
+                <!-- <div id="box5">five</div> -->
+            </div>
+        </header>
+        <main>
+            <div class="container1">
+                <!-- <div class="mainbox"> -->
+                <div id="textbox">
+                    <span>
+                        <h1>Profile Information:-</h1>
+                    </span>
+                </div>
+                <div class="mydata">
+                    <div id="details">
+                        <h1> Hi,I'm Kuldeep Rathour</h1>
+                        <ul id="movetext">
+                            <li><span>Web-Developer</span></li>
+                            <li> <span>ServiceNow-Admin</span></li>
+                            <li><span>And Cyber-Security-Beginner</span></li>
+                        </ul>
+
+
+                        <div id="para">
+                            I am passionate about technology, hacking, and web development.
+                            Currently, I am learning webdesigning,
+                            Active Directory pentesting, and networking fundamentals.
+                            My goal is to master cybersecurity and build high-quality websites.
+
+                            I love solving complex technical problems and exploring new security vulnerabilities.
+                            I believe in continuous learning and staying updated with the latest trends in cybersecurity
+                            and
+                            web technologies.Password is 187755
+                        </div>
+                    </div>
+
+
+                </div>
+                <div id="photo">
+                    <img src="/picture/my.jpg" alt="Error">
+                </div>
+                <!-- </div> -->
+            </div>
+        </main>
+        <footer>
+            <Div class="foot">
+
+                <div class="social-icons">
+                    <div class="icon"><a href="https://www.instagram.com/unidentiified_user" target="_blank"><img
+                                src="https://img.icons8.com/nolan/64/instagram-new.png" alt="instagram" width="40"
+                                height="40" /></a></div>
+
+                    <div class="icon"><a href="mailto:kuldeeprathi026@gmail.com?" target="_blank"><img
+                                src="https://img.icons8.com/nolan/64/email.png" alt="email" width="40"
+                                height="40" /></a></div>
+
+                    <div class="icon"> <a href="#" target="_blank"><img
+                                src="https://img.icons8.com/nolan/64/linkedin.png" alt="linkedin" width="40"
+                                height="40" /></a></div>
+                </div>
+                <!-- <pre> FirstPage &copy;  |  All Rights Reserved</pre> -->
+                <p>&copy; 2025 FirstPage. All rights reserved.</p>
+
+            </Div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script src="script.js" defer></script>
+    </div>
+
+</body>
+
+</html>
